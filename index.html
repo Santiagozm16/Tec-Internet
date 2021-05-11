@@ -1,60 +1,115 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
-    <title>
-        Registro
-    </title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="js/jquery-3.6.0.min"></script>
-    <meta charset="utf-8">
+	<title>TallerBoostrap</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
+
 <body>
-    <nav class="navbar navbar-danger" style="background-color: #e61d2b;">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="https://logodownload.org/wp-content/uploads/2014/04/coca-cola-logo-9.png" alt="Logo" width="10%" height="20%">
+	<nav class="navbar-nav navbar-expand-sm navbar-dark"
+		style="background-color: #e61d2b;">
+        <!--Imagen del Navbar-->
+		<div class="container justify-content-center">
+            <a class="navbar-brand" href="index.html">
+                <img src="imagenes/coca-cola-logo-9.png" alt="Logo" width="12%" height="20%">
             </a>
         </div>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button class="btn btn-light me-md-2" type="button" id="Iniciar-Sesion" href="#">Iniciar Sesíon</button>
-                <button class="btn btn-light" type="button" id="Registrarse" href="#">Registrarse</button>
-        </div>
-        <div class="container row col-1">
-        </div>
-    </nav>
-    <br>
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-2">
+        <!--Boton de contracción-->
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample"
+			aria-controls="navbarsExample" aria-expanded="true" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+        <!--Lista de botones-->
+		<div class="collapse navbar-collapse justify-content-end text-center" id="navbarsExample">
+			<ul class="nav navbar-nav" id="myTab" role="tablist">
+				<li class="nav-item active">
+					<a class="btn btn-light m-3" id="home-tab" data-toggle="tab" href="#Table" role="tab"
+						aria-controls="home" aria-selected="true">Iniciar Sesión</a>
+				</li>
+				<li class="nav-item">
+					<a class="btn btn-light m-3" id="table-tab" data-toggle="tab" href="#Registro" role="tab" aria-controls="tabla"
+						aria-selected="false">Registro</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="tab-content" id="myTabConent">
+		<div class="tab-pane fade show active" id="Registro" role="tabpanel" aria-labelledby="home-tab">
+            <div class="container" id="Registro1">
+				<div class="row">
+                    <div class="col-2">
+                    </div>
+                    <div class="col">
+                            <form>
+                                <h2 class="mb-3 mt-3 text-center"> Registrate  </h2>
+                                <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Usuario</label>
+                                <input type="text" class="form-control" id="Usuario" aria-describedby="emailHelp" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
+                                    <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" required>
+                                </div>
+                                <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="Contraseña" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Confirar contraseña</label>
+                                    <input type="password" class="form-control" id="Contraseña-2" required>
+                                </div>
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button class="btn btn-warning" type="submit">Registrarse</button>
+                                </div>
+                            </form> 
+                    </div>
+                    <div class="col-2">
+                    </div>
+                </div>
             </div>
-            <div class="col">
-                    <form>
-                        <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Usuario</label>
-                          <input type="text" class="form-control" id="Usuario" aria-describedby="emailHelp" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
-                            <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" required>
-                          </div>
-                        <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                          <input type="password" class="form-control" id="contraseña">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Confirar contraseña</label>
-                            <input type="password" class="form-control" id="contraseña-2">
-                          </div>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button class="btn btn-warning" type="button">Enviar</button>
-                        </div>
-                    </form> 
-            </div>
-            <div class="col-2">
-            </div>
         </div>
-    </div>
+        <!-- Iniciar Sesión -->
+		<div class="tab-pane fade" id="Table" role="tabpanel" aria-labelledby="table-tab">
+                <div class="container" id="IniciarSesion1">
+                    <div class="row">
+                        <div class="col-3"></div>
+                            <div class="col">
+                                <form>
+                                    <h2 class="text-center mb-3 mt-3">¡ Bienvenido !</h2>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
+                                        <input type="email" class="form-control" id="Usuario-1" aria-describedby="emailHelp" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                                        <input type="password" class="form-control" id="Contraseña-1" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <span>¿No tienes una cuenta? <a href="index.html">Registrate</a></span>
+                                    </div>
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <button class="btn btn-warning" type="submit">Iniciar Sesión</button>
+                                    </div>
+                                </form>
+                            </div>
+                        <div class="col-3"></div>
+                    </div>
+                </div>
+		</div>
+	</div>
 </body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+	crossorigin="anonymous"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3zQkTX_la0nl6ZD-EnIQzKCt5g5sfW08" async defer></script>
+<script src="js/cliente.js"></script>
+
 </html>
