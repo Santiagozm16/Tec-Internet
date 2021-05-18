@@ -20,7 +20,17 @@ $(document).ready(function(){ //Capturar datos de la interfaz grafica
 	$("#RegistroForm").submit(function(event){
 		console.log("entro el evento botón");
 		event.preventDefault();
-		submitFormInsert();
+		var pass1 = document.getElementById("Contrasena").value;
+		var pass2 = document.getElementById("Contrasena2").value;
+		if(pass1 == pass2 ){
+			submitFormInsert();
+		}else{
+			var respuesta = document.getElementById('alerta');
+			respuesta.innerHTML = `<div class="alert alert-danger" role="alert">
+			Las contraseñas no coinciden.
+		  	</div>`	
+		}
+		
 	});
 });
 
@@ -50,7 +60,11 @@ function submitFormInsert(){
 	})
 	.then(function(data){
 		if(data === " 1"){
-			alert("Se ingreso el dato");
+			//alert("Se ingreso el dato");
+			var respuesta = document.getElementById('alerta');
+			respuesta.innerHTML = `<div class="alert alert-success" role="alert">
+			Se ha registrado exitosamente
+		  	</div>`
         }
         else{
             alert("Error al insertar");
