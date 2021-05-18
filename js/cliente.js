@@ -35,7 +35,7 @@ function submitFormInsert(){
 	
     console.log(object);
 
-	fetch('http://localhost/proyecto/server/business/CancionInsert.php',{
+	fetch('http://localhost/proyecto/server/business/UserInsert.php',{
 	method:	'POST',
 	headers:{
 		'Content-Type' : 'application/json'

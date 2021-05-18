@@ -4,7 +4,8 @@
 <head>
 	<title>SabanaApp</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Responsive -->
+    <!--Estilos CSS-->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
 		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
@@ -38,13 +39,14 @@
 		</div>
 	</nav>
 	<div class="tab-content" id="myTabConent">
+        <!-- Formulario de Registro -->
 		<div class="tab-pane fade show active" id="Registro" role="tabpanel" aria-labelledby="home-tab">
             <div class="container" id="Registro1">
 				<div class="row">
                     <div class="col-2">
                     </div>
                     <div class="col">
-                            <form>
+                            <form action="" id="RegistroForm">
                                 <h2 class="mb-3 mt-3 text-center"> ¡ Registrate !  </h2>
                                 <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Usuario</label>
@@ -56,14 +58,14 @@
                                 </div>
                                 <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                                <input type="password" class="form-control" id="Contraseña" required>
+                                <input type="password" class="form-control" id="Contrasena" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Confirar contraseña</label>
-                                    <input type="password" class="form-control" id="Contraseña-2" required>
+                                    <input type="password" class="form-control" id="Contrasena-2" required>
                                 </div>
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <button class="btn btn-warning" type="submit">Registrarse</button>
+                                    <button class="btn btn-warning" type="submit" id="form-submit">Registrarse</button>
                                 </div>
                             </form> 
                     </div>
@@ -103,13 +105,15 @@
 	</div>
 </body>
 
+<!--JQuery-->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 	crossorigin="anonymous"></script>
+<!--JavaScript de Bootstrap-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
 	crossorigin="anonymous"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3zQkTX_la0nl6ZD-EnIQzKCt5g5sfW08" async defer></script>
+<!--JavaScript personalisado -->
 <script src="js/cliente.js"></script>
 
 </html>

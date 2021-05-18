@@ -1,7 +1,7 @@
 CREATE TABLE Usuario (
 idUsuario INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
 NombreApellido VARCHAR(100) NOT NULL,
-Contraseña VARCHAR(100) NOT NULL,
+Contrasena VARCHAR(100) NOT NULL,
 Correo VARCHAR(100) NOT NULL
 );
 
@@ -30,3 +30,10 @@ fkUsuario INTEGER NOT NULL,
 CONSTRAINT FOREIGN KEY(fkRuta) REFERENCES Ruta(idRuta),
 CONSTRAINT FOREIGN KEY(fkUsuario) REFERENCES Usuario(idUsuario)
 );
+
+SELECT * FROM streaming.usuario;
+
+#Forzar eliminar tablas relacionadas, Se ejecutan las 3 lineas y luego la de Truncate
+SET FOREIGN_KEY_CHECKS=0;
+TRUNCATE TABLE streaming.usuario;
+SET FOREIGN_KEY_CHECKS=1;
