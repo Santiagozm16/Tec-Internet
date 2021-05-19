@@ -31,10 +31,17 @@
                     <div id="Hello">
                     </div>
 				</li>
+                <!--Boton inicio NO ACTIVO-->
+                <li class="nav-item ">
+					<a class="btn btn-light m-3 text-danger font-weight-bold" id="Inicio-tab" data-toggle="tab" href="#Inicio" role="tab"
+                     	aria-selected="true">Inicio</a>
+				</li>
+                 <!--Boton inicio sesion NO ACTIVO-->
 				<li class="nav-item active">
 					<a class="btn btn-light m-3" id="home-tab" data-toggle="tab" href="#Table" role="tab"
 						aria-controls="home" aria-selected="true">Iniciar Sesión</a>
 				</li>
+                <!--Boton resgistro ACTIVO-->
 				<li class="nav-item">
 					<a class="btn btn-light m-3" id="table-tab" data-toggle="tab" href="#Registro" role="tab" aria-controls="tabla"
 						aria-selected="false">Registro</a>
@@ -43,8 +50,75 @@
 		</div>
 	</nav>
 	<div class="tab-content" id="myTabConent">
+        <!-- Inicio ACTIVO-->
+        <div  class="tab-pane fade show active  " id="Inicio" role="tabpanel" aria-labelledby="Inicio-tab">           
+            <div class="card text-white" id="InicioCard1"  >
+                <img src="D:\OneDrive\Documents\GitHub\Tec-Internet\imagenes\mapaFONDO.jpg"  class="img-fluid" alt="FondoInicio" >
+                <!--Overlay para imágen-->
+                <div class="card-img-overlay d-flex ">
+                    <!--zona izquierda-->
+                    <div class=" media-body mask rounded " style="background-color: rgba(58, 0, 0, 0.61)">
+                        <!--Texto-->                        
+                       <div class="p-5 mt-5 ">
+                            <div class="col-xs-12" style="height:60px;"></div>
+                            <h1 class="p-3  mt-5 card-title font-weight-bolder text-warning">Bienvenido a SabanaApp</h1>                                                                              
+                            <h3 class="pt-0 pl-3  card-title "> Planifica tus viajes y llega a cualquier municipio a las afueras de bogotá</h3>  
+                            <h5 class="p-3 pt-1 card-title "> Nuestra aplicación te permite encontrar diferentes rutas y horarios de los buses intermunicipales en la sabana centro</h5>
+                           
+                            <!--cartas con info-->
+                            <div class=" d-flex flex-row justify-content-around text-dark pt-5">
+                                  <!--carta 1-->
+                                <div  class="card" style="width: 10rem;">
+                                    <img class="card-img-top p-2 pb-4 bg-light" src="D:\OneDrive\Documents\GitHub\Tec-Internet\imagenes\celularIcono.png" alt="Card image cap">
+                                    <div class="card-body">
+                                        <p class="card-text font-weight-bold">Busca tu destino</p>
+                                    </div>
+                                </div>
+                                <!--carta 2-->
+                                <div  class="card" style="width: 10rem;">
+                                    <img class="card-img-top p-2 bg-light" src="D:\OneDrive\Documents\GitHub\Tec-Internet\imagenes\ruta.png" alt="Card image cap">
+                                    <div class="card-body">
+                                        <p class="card-text font-weight-bold"> Asegura tu ruta</p>
+                                    </div>
+                                </div>
+                                <!--carta 3-->
+                                <div  class="card" style="width: 10rem;">
+                                    <img class="card-img-top p-2 bg-light" src="D:\OneDrive\Documents\GitHub\Tec-Internet\imagenes\ciudad.png" alt="Card image cap">
+                                    <div class="card-body">
+                                        <p class="card-text font-weight-bold"> Visita nuevos lugares</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                    </div>
+                    <!--zona derecha-->
+                    <div class=" p-2   media-body text-center  " >
+                        <!--Imagen-->
+                        <img src="D:\OneDrive\Documents\GitHub\Tec-Internet\imagenes\MapaPin.png" class="mt-5" width="60%"   alt="Responsive image" > 
+                        <img src="D:\OneDrive\Documents\GitHub\Tec-Internet\imagenes\Bus.png" class="mt-5" width="60%"   alt="Responsive image" > 
+                    </div>
+                </div>
+            </div>
+            <!--Pie de página-->
+            <footer class="page-footer bg-warning">
+                <div class="pb-0 p-4" >
+                    <h5 class="text-uppercase font-weight-bold">Contactanos</h5>
+                    <h6 class="pt-0">est.andress.rodrig1@unimilitar.edu.co</h6>
+                    <h6 class="pt-0">est.maria.pedraza2@unimilitar.edu.co</h6>
+                    <h6 class="pt-0">est.valentina.cort@unimilitar.edu.co</h6>
+                    <h6 class="pt-0">est.jesus.ruiz@unimilitar.edu.co</h6>
+                    
+                </div>
+                <div  class="footer-copyright text-center py-2" style="background-color: #e61d2b;"> 
+                    Universidad Militar Nueva Granada
+                </div>
+                
+            </footer>
+        </div>
         <!-- Formulario de Registro -->
-		<div class="tab-pane fade show active" id="Registro" role="tabpanel" aria-labelledby="home-tab">
+		<div class="tab-pane fade " id="Registro" role="tabpanel" aria-labelledby="home-tab">
             <div class="container" id="Registro1">
 				<div class="row">
                     <div class="col-2">
