@@ -6,7 +6,7 @@ class UsuarioDAO {
    
    private $connectionDB;
    private $dbCon;
-   const CONSULTA = "SELECT c.nombre, c.duracion, c.anio, g.nombre as genero FROM cancion c, genero g WHERE g.idGenero = c.fkgenero";
+   const CONSULTA = "SELECT Correo, Contrasena, idUsuario FROM usuario";
    const INSERT = "INSERT INTO usuario (NombreApellido,Contrasena,Correo) VALUES (?,?,?)";
    
    public function __construct() {
