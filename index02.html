@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Prueba</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar-nav navbar-expand-sm navbar-dark"
+    style="background-color: #e61d2b;">
+    <img src="imagenes/coca-cola-logo-9.png" alt="Logo" width="7.5%" height="7.5%">  
+    <div class="collapse navbar-collapse justify-content-around" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse justify-content-around" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="navbar-text"  style="color: #ffffff;">Ciudad Origen</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item selectpicker">
+          <div class="selectpicker">
+            <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal">
+              <option value="" disabled selected>Elige tu ciudad origen</option>
+              <option value="1">Mosquera</option>
+            </select>
+          </div>
+       </li>
+     </ul>
+    </div>
+    <div class="collapse navbar-collapse justify-content-around" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="navbar-text"  style="color: #ffffff;">Ciudad Destino</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item selectpicker">
+          <div class="selectpicker" data-style="btn-danger">
+            <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal">
+              <option value="" disabled selected>Elige tu ciudad destino</option>
+              <option value="1">Bogotá</option>
+            </select>
+          </div>
+       </li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse justify-content-around" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+       <li class="nav-item">
+        <button class="btn btn-warning" type="submit">Buscar ruta</button>
+       </li>
+     </ul>
+    </div>
+  </div>
+ </nav>
+ <div class="container-fluid p-5 bg-dark text-white">
+  <h1 class="text-center">Busca la ruta que necesites en la sabana centro</h1>
+  <p class="text-center">Ingresa tu ciudad de origen y tu ciudad de destino para ver toda la información de la ruta</p>
+</div>
+  <div class="container-fluid p-5 bg-warning text-white justify-content-start">
+    <div class="row align-items-center">
+      <div class="col">
+        <h1 class="text-center">Mapa</h1>
+        <img src="imagenes/mapa.JPG"  width="95%" height="95%">
+      </div>
+      <div class="col bg-danger">
+        <h1 class="text-center">Información</h1>
+        <h4 class="text-center">Ciudad origen: Bogotá D.C</h4>
+        <h4 class="text-center">Ciudad destino: Chía</h4>
+        <h4 class="text-center">Distancia: 23km</h4>
+      </div>
+    </div>
+  </div>
+ </div>
+ <div class="container-fluid p-5 bg-danger text-white justify-content-start">
+  <h1 class="text-center">Comentarios</h1>
+  <h6 class="text-center">¡Comparte tus comentarios sobre las rutas con nuestra comunidad! </h6>
+  <br>
+  <div class="form-group shadow-textarea"> 
+    <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Escribe tu comentario aquí..."></textarea>
+    <br>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-warning" type="submit">Enviar</button>
+  </div>
+  </div>
+</div>
+</body>
+<section class="">
+  <!-- Footer -->
+  <footer class="text-center text-white bg-dark" >
+    <!-- Grid container -->
+    <div class="container p-4 pb-0 ">
+      <!-- Section: CTA -->
+      <section class="">
+        <p class="d-flex justify-content-center align-items-center">
+          <span class="me-3">¡Unete a nuestra comunidad!</span>
+          <button type="button" class="btn btn-outline-light btn-rounded" href="index.html">
+            Registrate
+          </a>
+          </button>
+        </p>
+      </section>
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2021
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</section>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+	crossorigin="anonymous"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3zQkTX_la0nl6ZD-EnIQzKCt5g5sfW08" async defer></script>
+<script src="js/cliente.js"></script>
+<script src="js/mapa.js"></script>
+</html>
+        <!--Boton de contracción-->        
