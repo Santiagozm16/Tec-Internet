@@ -46,7 +46,7 @@
 			</ul>
 		</div>
 	</nav>
-    <!--Registro -->
+    <!--Inicio -->
 	<div class="tab-content" id="myTabConent">
         <!-- Inicio ACTIVO-->
         <div  class="tab-pane fade show active  " id="Inicio" role="tabpanel" aria-labelledby="Inicio-tab">           
@@ -173,7 +173,16 @@
                                     </div>
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                         <button class="btn btn-warning" type="submit" id="Inicio-Submit">Iniciar Sesión</button>
+                                   
+                                        <li class="nav-item "></li>
+                                        <button class="btn btn-warning" id="Inicio-tab" data-toggle="tab" href="#Continuar" role="tab" type="submit" href="#Continuar" aria-selected="true">continuar</button>
+                                           
+                                        </li>
+                                     
                                     </div>
+
+
+
                                     <diV id="alerta2" class="mt-3">
                                     </diV>
                                 </form>
@@ -182,8 +191,165 @@
                     </div>
                 </div>
 		</div>
-	</div>
+	
+<!-- Continuar -->
+    <div class="tab-pane fade show " id="Continuar" role="tabpanel" aria-labelledby="table-tab">
+    <div class="card text-white " id="Continuar1">
+        
+        <div class="container-fluid p-5 bg-dark text-white">
+            <h1 class="text-center">Busca la ruta que necesites en la sabana centro</h1>
+            <p class="text-center">Ingresa tu ciudad de origen y tu ciudad de destino para ver toda la información de la ruta</p>
+            <div class="container-fluid p-5 bg-dark text-white">
+              <div class="row">
+              <div class="col">
+                <h4 class="text-center">Ciudad origen</h4>
+              </div>
+              <div class="col">
+                <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal">
+                  <option value="" disabled selected>Elige tu ciudad destino</option>
+                  <option value="1">Bogotá</option>
+                </select>
+              </div>
+              <div class="col">
+              <h4 class="text-center">Ciudad destino</h4>
+            </div>
+            <div class="col">
+              <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal">
+                <option value="" disabled selected>Elige tu ciudad destino</option>
+                <option value="1">Mosquera</option>
+              </select>
+            </div>
+            <div class="col text-center">
+              
+              <button class="btn btn-warning" id="Inicio-tab" data-toggle="tab"  role="tab" type="submit" href="#buscar" aria-selected="true">Buscar ruta</button>
+            </div>
+            </div>
+            </div>
+          </div>
+
+
+
+        
+
+
+        </div>
+    </div>
+            
+    <!-- Continuar -->
+    
+    <div class="tab-pane fade show " id="buscar" role="tabpanel" aria-labelledby="table-tab">
+        <div class="card text-white " id="buscar1">
+
+
+
+            <div class="container-fluid p-5 bg-dark text-white">
+                <h1 class="text-center">Busca la ruta que necesites en la sabana centro</h1>
+                <p class="text-center">Ingresa tu ciudad de origen y tu ciudad de destino para ver toda la información de la ruta</p>
+                <div class="container-fluid p-5 bg-dark text-white">
+                  <div class="row">
+                  <div class="col">
+                    <h4 class="text-center">Ciudad origen</h4>
+                  </div>
+                  <div class="col">
+                    <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal">
+                      <option value="" disabled selected>Elige tu ciudad destino</option>
+                      <option value="1">Bogotá</option>
+                    </select>
+                  </div>
+                  <div class="col">
+                  <h4 class="text-center">Ciudad destino</h4>
+                </div>
+                <div class="col">
+                  <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal">
+                    <option value="" disabled selected>Elige tu ciudad destino</option>
+                    <option value="1">Mosquera</option>
+                  </select>
+                </div>
+                <div class="col text-center">
+                  
+                  <button class="btn btn-warning" id="Inicio-tab" data-toggle="tab"  role="tab" type="submit" href="#buscar" aria-selected="true">Buscar ruta</button>
+                </div>
+                </div>
+                </div>
+              </div>
+
+
+
+
+       <div class="container-fluid p-5 bg-warning text-white justify-content-start">
+<div class="row align-items-center">
+  <div class="col">
+    <h1 class="text-center">Mapa</h1>
+    <img src="imagenes/mapa.JPG"  width="95%" height="95%">
+  </div>
+  <div class="col bg-danger">
+    <h1 class="text-center">Información</h1>
+    <h4 class="text-center">Ciudad origen: Bogotá D.C</h4>
+    <h4 class="text-center">Ciudad destino: Chía</h4>
+    <h4 class="text-center">Distancia: 23km</h4>
+  </div>
+</div>
+</div>
+
+
+<div class="container-fluid p-5 bg-danger text-white justify-content-start">
+    <h1 class="text-center">Comentarios</h1>
+    <h6 class="text-center">¡Comparte tus comentarios sobre las rutas con nuestra comunidad! </h6>
+    <br>
+    <div class="form-group shadow-textarea"> 
+      <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Escribe tu comentario aquí..."></textarea>
+      <br>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-warning" type="submit">Enviar</button>
+    </div>
+    </div>
+  </div>
+  </body>
+  <section class="">
+    <!-- Footer -->
+    <footer class="text-center text-white bg-dark" >
+      <!-- Grid container -->
+      <div class="container p-4 pb-0 ">
+        <!-- Section: CTA -->
+        <section class="">
+          <p class="d-flex justify-content-center align-items-center">
+            <span class="me-3">¡Unete a nuestra comunidad!</span>
+            <button type="button" class="btn btn-outline-light btn-rounded" href="index.html">
+              Registrate
+            </a>
+            </button>
+          </p>
+        </section>
+      </div>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2021
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+  </section>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3zQkTX_la0nl6ZD-EnIQzKCt5g5sfW08" async defer></script>
+  <script src="js/cliente.js"></script>
+  <script src="js/mapa.js"></script>
+  </html>
+
+
+
+</div>
+</div>
+
+
+
+
 </body>
+
+
 
 <!--JQuery-->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
