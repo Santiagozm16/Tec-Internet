@@ -12,13 +12,56 @@ $(document).ready(function(){
 		//console.log(correo + " + " +pass); Se estan capturando de manera correcta los campos init
 	});
 });
+//Extrae los valores de las listas desplegables
+$(document).ready(function(){
+	var origen;
+	var destino;
+	$('#validationCustom01').on('click',function() {
+		console.log($(this).val());
+		origen = $(this).val();
+	});
+	$('#validationCustom02').on('click',function() {
+		console.log($(this).val());
+		destino = $(this).val();
+	});
+	$('#Ayuda-tab').on('click',function() {
+		datosConsulta(origen,destino);
+	});
+});
+//Consultar Ruta
+function datosConsulta(CiudadOrigen, CiudadDestino){
+	console.log('Entro');
+	fetch('http://localhost/Tec-Internet/server/business/RutaConsulta.php',{
+	method:	'GET',
+	headers:{
+		'Content-Type' : 'application/json'
+	}
+	}).then(response => response.json())
+		.then(result => {
+			if (result.length > 0) {
+				cargarDatos(result, CiudadOrigen, CiudadDestino);
+			} else {
+				console.log(JSON.stringify(result));
+			}
+	}).catch(error => console.log('error: ' + error));
+}
 
-//Consultar Usuarios
+function cargarDatos(data, Origen, Destino){
+	console.log('Este es origen:' + Origen);
+	console.log('Este es destino:' + Destino);
+	$("#dataInfo tr").remove();
+	if(Origen == data[0].CiudadOrigen && Destino == data[0].CiudadDestino){
+		$("#dataInfo").append('<tr><td>Ciudad de origen:</td>' + `<tr><td>${data[0].CiudadOrigen}</td><td>` + '<tr><td>Ciudad de destino:</td>' + `<tr><td>${data[0].CiudadDestino}</td><td>` 
+		+ '<tr><td>Horarios:</td>' + `<tr><td>${data[0].Horarios}</td><td>`);	
+	}else(
+		$("#dataInfo").append('<tr><td>No se encontro la ruta</td>')
+	)
+}
 
 function submitConsulta(email,pass){
 	var bandera = 0;
 	console.log("Entró a llamar");
-	fetch('http://localhost/proyecto/server/business/UserConsulta.php',{
+	fetch('http://localhost/Tec-Internet/server/business/UserConsulta.php',{
 	method:	'GET',
 	headers:{
 		'Content-Type' : 'application/json'
@@ -72,8 +115,8 @@ function ayuda(flag){
 		  </div>`
 		var respuesta1 = document.getElementById('Hello');
 		var ab = "Yay";
-		respuesta1.innerHTML = ` <a class="btn btn-light m-3" id="table-tab-2" data-toggle="tab" href="#Table" role="tab" aria-controls="tabla"
-		aria-selected="false">Cerrar Sesión</a>` //Complementar acciones para el cierre de sesión cambiar us --> Desaparecer botón
+		respuesta1.innerHTML = ` <a class="btn btn-light m-3" 
+		<button class="btn btn-warning" id="Inicio-tab" data-toggle="tab" href="#Continuar" role="tab" type="submit" href="#Continuar" aria-selected="true">Consultar ruta</a>`//Complementar acciones para el cierre de sesión cambiar us --> Desaparecer botón
 		console.log(us);
 	}
 }
@@ -108,7 +151,7 @@ function submitFormInsert(){
 	
     console.log(object);
 
-	fetch('http://localhost/proyecto/server/business/UserInsert.php',{
+	fetch('http://localhost/Tec-Internet/server/business/UserInsert.php',{
 	method:	'POST',
 	headers:{
 		'Content-Type' : 'application/json'
