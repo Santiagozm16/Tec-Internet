@@ -1,5 +1,6 @@
 //Mi JavaScript
 var us = 0; //-->Variable para relacionar comentarios con el usuario
+var nombre;
 
 //Verificación de Inicio de Sesión
 $(document).ready(function(){
@@ -45,7 +46,7 @@ function datosConsulta(CiudadOrigen, CiudadDestino){
 			}
 	}).catch(error => console.log('error: ' + error));
 }
-
+//Cargar ruta
 function cargarDatos(data, Origen, Destino){
 	console.log('Este es origen:' + Origen);
 	console.log('Este es destino:' + Destino);
@@ -57,7 +58,7 @@ function cargarDatos(data, Origen, Destino){
 		$("#dataInfo").append('<tr><td>No se encontro la ruta</td>')
 	)
 }
-
+//Consultar usuario para inicio de Sesión
 function submitConsulta(email,pass){
 	var bandera = 0;
 	console.log("Entró a llamar");
@@ -79,6 +80,7 @@ function submitConsulta(email,pass){
 							if(pass == result[i].Contrasena){
 								bandera = 2;
 								us = result[i].idUsuario;
+								nombre = result[i].NombreApellido;
 							}
 						}
 					}
@@ -91,7 +93,7 @@ function submitConsulta(email,pass){
         .catch(error => console.log('error: ' + error));
 	return bandera;
 }
-
+//Función para generar mensajes emergentes
 function ayuda(flag){
 	if(flag == 0){
 		//console.log("Usuario no encontrado");
@@ -112,13 +114,45 @@ function ayuda(flag){
 		var respuesta = document.getElementById('alerta2');
 		respuesta.innerHTML = `<div class="alert alert-success" role="alert">
 		¡ Bienvenido !
-		  </div>`
+		  </div>`;
+		var respuesta0 = document.getElementById('Hello0');
 		var respuesta1 = document.getElementById('Hello');
-		var ab = "Yay";
+		var respuesta2 = document.getElementById('Hello2');
+		var respuesta3 = document.getElementById('Hello3');
+		var respuesta4 = document.getElementById('Hello4');
+		var respuesta5 = document.getElementById('Hello5');
+		respuesta0.innerHTML = "Bienvenido " + nombre;
 		respuesta1.innerHTML = ` <a class="btn btn-light m-3" 
-		<button class="btn btn-warning" id="Inicio-tab" data-toggle="tab" href="#Continuar" role="tab" type="submit" href="#Continuar" aria-selected="true">Consultar ruta</a>`//Complementar acciones para el cierre de sesión cambiar us --> Desaparecer botón
+		<button class="btn btn-warning" id="Inicio-tab" data-toggle="tab" href="#Continuar" role="tab" type="submit" href="#Continuar" aria-selected="false">Consultar ruta</a>`//Complementar acciones para el cierre de sesión cambiar us --> Desaparecer botón
 		console.log(us);
+		console.log(nombre);
+		respuesta2.innerHTML = ` <a class="btn btn-light m-3" 
+		<button class="btn btn-warning" id="Inicio-tab" data-toggle="tab" role="tab" type="submit" aria-selected="false" href="#Inicio" onclick="cerrarSesion()"> Cerrar Sesión </a>`;
+		respuesta3.innerHTML = "";
+		respuesta4.innerHTML = " ";
+		respuesta5.innerHTML = " ";
 	}
+}
+
+function cerrarSesion(){
+	var respuesta0 = document.getElementById('Hello0');
+	var respuesta1 = document.getElementById('Hello');
+	var respuesta2 = document.getElementById('Hello2');
+	var respuesta3 = document.getElementById('Hello3');
+	var respuesta4 = document.getElementById('Hello4');
+	var respuesta5 = document.getElementById('Hello5');
+	respuesta0.innerHTML = " ";
+	respuesta1.innerHTML = " ";
+	respuesta2.innerHTML = " ";
+	respuesta3.innerHTML = `<a class="btn btn-light m-3" id="Inicio-tab" data-toggle="tab" href="#Inicio" role="tab"
+	aria-selected="false">Inicio</a>`;
+	respuesta4.innerHTML = `<a class="btn btn-light m-3" id="home-tab" data-toggle="tab" href="#Table" role="tab"
+	aria-controls="home" aria-selected="false">Iniciar Sesión</a>`;
+	respuesta5.innerHTML = `<a class="btn btn-light m-3" id="table-tab" data-toggle="tab" href="#Registro" role="tab" aria-controls="tabla"
+	aria-selected="false">Registro</a>`;
+	us = 0;
+	nombre = null;
+	console.log(us);
 }
 //Insertar Usuario
 

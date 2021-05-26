@@ -8,6 +8,7 @@
     <!--Estilos CSS-->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
 		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="shortcut icon" href="imagenes/favicon.jpeg">
 </head>
 
 <body>
@@ -16,31 +17,48 @@
         <!--Imagen del Navbar-->
 		<div class="container justify-content-center">
       <a class="navbar-brand" href="index.html">
-        <img src="imagenes/coca-cola-logo-9.png" alt="Logo" width="12%" height="20%">
+        <img src="imagenes/SabanaApp-Logo.jpeg" alt="Logo" width="21%" height="29%">
       </a>
     </div>
         <!--Boton de contracción-->        
         <!--Lista de botones-->
 		<div class="collapse navbar-collapse justify-content-end text-center" id="navbarsExample">
 			<ul class="nav navbar-nav" id="myTab" role="tablist">
+        <li>
+          <div id="Hello0" class="text-light m-4">
+            <!--Div reservado para el bienvenido Name usuario-->
+          </div>
+        </li>
         <li class="nav-item">
           <div id="Hello">
+            <!--Div para reservado el boton de Consultar Ruta-->
+          </div>
+				</li>
+        <li class="nav-item">
+          <div id="Hello2">
+            <!--Div reservado para el boton Cerrar Sesión-->
           </div>
 				</li>
                 <!--Boton inicio NO ACTIVO-->
         <li class="nav-item ">
-					<a class="btn btn-light m-3 text-danger font-weight-bold" id="Inicio-tab" data-toggle="tab" href="#Inicio" role="tab"
-            aria-selected="true">Inicio</a>
+          <div id="Hello3">
+            <a class="btn btn-light m-3" id="Inicio-tab" data-toggle="tab" href="#Inicio" role="tab"
+              aria-selected="true">Inicio</a>
+          </div>
 				</li>
-                 <!--Boton inicio sesion NO ACTIVO-->
+                 <!--Boton inicio sesion ACTIVO-->
 				<li class="nav-item active">
-					<a class="btn btn-light m-3" id="home-tab" data-toggle="tab" href="#Table" role="tab"
-						aria-controls="home" aria-selected="true">Iniciar Sesión</a>
+          <div id="Hello4">
+            <a class="btn btn-light m-3" id="home-tab" data-toggle="tab" href="#Table" role="tab"
+              aria-controls="home" aria-selected="true">Iniciar Sesión</a>
+          </div>
 				</li>
                 <!--Boton resgistro ACTIVO-->
 				<li class="nav-item">
-					<a class="btn btn-light m-3" id="table-tab" data-toggle="tab" href="#Registro" role="tab" aria-controls="tabla"
-						aria-selected="false">Registro</a>
+          <div id="Hello5">
+            <a class="btn btn-light m-3" id="table-tab" data-toggle="tab" href="#Registro" role="tab" aria-controls="tabla"
+              aria-selected="false">Registro</a>
+          </div>
 				</li>         
 			</ul>
 		</div>
@@ -187,6 +205,7 @@
             <div class="mb-3">
               <label for="validationCustom01" class="form-label">Ciudad Origen:</label>
               <select class="form-control" id="validationCustom01" required>
+                <option id="Origen"  selected disabled value="">Elegir destino</option>
                 <option id="Origen"value="Bogota">Bogota</option>
                 <option id="Origen"value="Chía">Chía</option>
               </select>
@@ -194,6 +213,7 @@
             <div class="mb-3">
               <label for="validationCustom02" class="form-label">Ciudad Destino:</label>
               <select class="form-control" id="validationCustom02" required>
+                <option id="Origen"  selected disabled value="">Elegir destino</option>
                 <option id="Destino"value="Cajica">Cajica</option>
                 <option id="Destino"value="Chía">Chía</option>
               </select>
@@ -214,10 +234,10 @@
             <h1 class="text-center">Mapa</h1>
             <img src="imagenes/mapa.JPG"  width="95%" height="95%">
           </div>
-          <div class="col bg-danger text-center">
-            <h1 class="text-center">Información</h1>
-            <!-- Trae la información de la base de datos-->
-            <h4 class="text-center" id="dataInfo"> </h4>	
+          <div class="col-md bg-danger text-center">
+              <h1 class="text-center">Información</h1>
+              <!-- Trae la información de la base de datos-->
+              <h4 class="text-center" id="dataInfo"> </h4>
           </div>
         </div>
       </div>
@@ -263,5 +283,5 @@
       crossorigin="anonymous"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3zQkTX_la0nl6ZD-EnIQzKCt5g5sfW08" async defer></script>
   <script src="js/cliente.js"></script>
-  <script src="js/mapa.js"></script>
+  <!--<script src="js/mapa.js"></script>-->
 </html>
