@@ -30,15 +30,21 @@ fkUsuario INTEGER NOT NULL,
 CONSTRAINT FOREIGN KEY(fkRuta) REFERENCES Ruta(idRuta),
 CONSTRAINT FOREIGN KEY(fkUsuario) REFERENCES Usuario(idUsuario)
 );
-
 SELECT * FROM streaming.usuario;
+
+
+SELECT * FROM streaming.ruta;
 
 INSERT INTO Ruta (Nombre, Horarios, Cordenadas, CiudadDestino, CiudadOrigen)
 VALUES ('Ruta1', '5:15AM - 10:00PM', '4.864909639282648, -74.05120513489219' , 'Chía' , 'Bogota' );
 
 SELECT * FROM streaming.ruta;
 
-#Forzar eliminar tablas relacionadas, Se ejecutan las 3 lineas y luego la de Truncate
-SET FOREIGN_KEY_CHECKS=0;
-TRUNCATE TABLE streaming.usuario;
-SET FOREIGN_KEY_CHECKS=1;
+ALTER TABLE comentario DROP COLUMN  CLike;
+ALTER TABLE comentario DROP COLUMN  Dislike;
+
+
+
+
+
+

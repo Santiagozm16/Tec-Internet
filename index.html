@@ -10,7 +10,6 @@
 		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="shortcut icon" href="imagenes/favicon.jpeg">
 </head>
-
 <body>
 	<nav class="navbar-nav navbar-expand-sm navbar-dark"
 		style="background-color: #e61d2b;">
@@ -40,29 +39,23 @@
           </div>
 				</li>
                 <!--Boton inicio NO ACTIVO-->
-        <li class="nav-item ">
-          <div id="Hello3">
-            <a class="btn btn-light m-3" id="Inicio-tab" data-toggle="tab" href="#Inicio" role="tab"
-              aria-selected="true">Inicio</a>
-          </div>
-				</li>
+        <li class="nav-item active" id="Hello3">          
+          <a class="btn btn-light m-3" id="Inicio-tab" data-toggle="tab" href="#Inicio" role="tab"
+              aria-selected="true">Inicio</a>          
+        </li>
                  <!--Boton inicio sesion ACTIVO-->
-				<li class="nav-item active">
-          <div id="Hello4">
-            <a class="btn btn-light m-3" id="home-tab" data-toggle="tab" href="#Table" role="tab"
-              aria-controls="home" aria-selected="true">Iniciar Sesión</a>
-          </div>
-				</li>
+        <li class="nav-item " id="Hello4">          
+          <a class="btn btn-light m-3" id="home-tab" data-toggle="tab" href="#Table" role="tab"
+             aria-controls="home" aria-selected="true">Iniciar Sesión</a>          
+        </li>
                 <!--Boton resgistro ACTIVO-->
-				<li class="nav-item">
-          <div id="Hello5">
-            <a class="btn btn-light m-3" id="table-tab" data-toggle="tab" href="#Registro" role="tab" aria-controls="tabla"
-              aria-selected="false">Registro</a>
-          </div>
-				</li>         
-			</ul>
-		</div>
-	</nav>
+        <li class="nav-item"  id="Hello5">          
+          <a class="btn btn-light m-3" id="table-tab" data-toggle="tab" href="#Registro" role="tab" 
+             aria-controls="tabla" aria-selected="false">Registro</a>          
+        </li>         
+      </ul>
+    </div>
+  </nav>
     <!--Inicio -->
 	<div class="tab-content" id="myTabConent">
         <!-- Inicio ACTIVO-->
@@ -196,63 +189,88 @@
   </div>
 	
 <!-- Continuar -->
-  <div class="tab-pane fade show " id="Continuar" role="tabpanel" aria-labelledby="continuar-tab">
-    <div class="card text-white " id="Continuar1">      
-      <div class="container-fluid p-5 bg-dark text-white">
+  <div class="container-fluid tab-pane fade bg-dark p-0" id="Continuar" role="tabpanel" aria-labelledby="continuar-tab">
+    <!--Contenedor principal-->
+    <div class="container-fluid p-0" id="Continuar1" >  
+      <!--Contenedor de la busqueda-->   
+      <div class="container-fluid p-5 bg-dark text-white ">
         <h1 class="text-center">Busca la ruta que necesites en la sabana centro</h1>
         <p class="text-center">Ingresa tu ciudad de origen y tu ciudad de destino para ver toda la información de la ruta</p>
-          <form action="" id="RutaForm">
-            <div class="mb-3">
-              <label for="validationCustom01" class="form-label">Ciudad Origen:</label>
-              <select class="form-control" id="validationCustom01" required>
-                <option id="Origen"  selected disabled value="">Elegir destino</option>
-                <option id="Origen"value="Bogota">Bogota</option>
-                <option id="Origen"value="Chía">Chía</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label for="validationCustom02" class="form-label">Ciudad Destino:</label>
-              <select class="form-control" id="validationCustom02" required>
-                <option id="Origen"  selected disabled value="">Elegir destino</option>
-                <option id="Destino"value="Cajica">Cajica</option>
-                <option id="Destino"value="Chía">Chía</option>
-              </select>
-            </div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <button href="#buscar" class="btn btn-warning" id="Ayuda-tab" data-toggle="tab"  role="tab" type="submit" aria-selected="true">Buscar ruta</button>                       
-            </div>
-          </form>
+        <form class="container-fluid" action="" id="RutaForm">
+          <!--Contenedor del form del form-->
+          <div class=" p-3 d-flex flex-row align-items-center">                  
+            <label for="validationCustom01" class="form-label">Ciudad Origen:</label>
+            <select class="form-control bg-light d-inline-flex ml-5 mr-5" id="validationCustom01" required>
+              <option id="Origen"  selected disabled value="">Elegir destino</option>
+              <option id="Origen"value="Bogota">Bogota</option>
+              <option id="Origen"value="Chía">Chía</option>
+            </select> 
+            <label for="validationCustom02" class="form-label">Ciudad Destino:</label>
+            <select class="form-control  ml-5 mr-5" id="validationCustom02" required>
+              <option id="Origen"  selected disabled value="">Elegir destino</option>
+              <option id="Destino"value="Cajica">Cajica</option>
+              <option id="Destino"value="Chía">Chía</option>
+            </select>
+            <button href="#buscar" class="btn btn-warning" id="Ayuda-tab" data-toggle="tab"  role="tab" type="submit" aria-selected="true">Buscar</button>                       
+          </div>
+        </form>
+      </div>
+  <!--Muestra la información de la ruta-->
+  <div class="container-fluid p-5 bg-secondary text-light d-flex flex-row">            
+    <!--Contenedor de la izquierda-->
+    <div class="container-fluid bg-danger  media-body text-center rounded pb-3" id="buscar1">
+      <h1>Mapa</h1>
+      <!-- mapa-->
+      <div class=" p-1">
+        contenedor del mapa por si acaso
+        <img class="rounded"src="imagenes/mapa.JPG" width="80%"  alt="Responsive image">
+      </div>                            
+    </div>
+    <!--Contenedor de la derecha-->
+    <div class="container-fluid text-light media-body " id="buscar1">
+      <h1 class="text-center p-2">Información</h1>
+      <!--Contenedor para manterer los datos centrados maso maso :(-->
+      <div  class="container-fluid p-5 align-items-center" id="dataInfo">
+        <!-- Trae la información de la base de datos-->
+        
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="container-fluid p-5 bg-danger text-white ">            
+    <h1 class="text-center">Comentarios</h1>
+    <h6 class="text-center m-3">¡Comparte tus comentarios sobre las rutas con nuestra comunidad! </h6>
+    <div class="container-fluid p-5 text-white justify-content-end">
+      <div id="textoComentario">
+
       </div>
     </div>
-  </div> 
-  <!--Muestra la información de la ruta-->
-  <div class="tab-pane fade " id="buscar" role="tabpanel" aria-labelledby="home-tab">
-    <div class="card text-white " id="buscar1">
-      <div class="container-fluid p-5 bg-warning text-white justify-content-start">
-        <div class="row align-items-center">
-          <div class="col">
-            <h1 class="text-center">Mapa</h1>
-            <img src="imagenes/mapa.JPG"  width="95%" height="95%">
-          </div>
-          <div class="col-md bg-danger text-center">
-              <h1 class="text-center">Información</h1>
-              <!-- Trae la información de la base de datos-->
-              <h4 class="text-center" id="dataInfo"> </h4>
-          </div>
-        </div>
+    <div class="form-group shadow-textarea" id="FormComentario"> 
+      <textarea class="form-control z-depth-1" id="comentario" rows="3" placeholder="Escribe tu comentario aquí..."></textarea>
+      <div class=" d-flex justify-content-end m-3">
+        <button class="btn btn-warning" id="enviarComentario" type="submit">Enviar</button>
       </div>
-      <div class="container-fluid p-5 bg-danger text-white justify-content-start">
+    </div>
+  </div>
+
+      <!--<div class="container-fluid p-5 bg-danger text-white justify-content-start">
         <h1 class="text-center">Comentarios</h1>
         <h6 class="text-center">¡Comparte tus comentarios sobre las rutas con nuestra comunidad! </h6>
         <br>
-        <div class="form-group shadow-textarea"> 
-          <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Escribe tu comentario aquí..."></textarea>
+          <div class="container-fluid p-5 text-white justify-content-end">
+              <div id="textoComentario">
+
+              </div>
+            </div>
+        <div class="form-group shadow-textarea" id="FormComentario"> 
+          <textarea class="form-control z-depth-1" id="comentario" rows="3" placeholder="Escribe tu comentario aquí..."></textarea>
           <br>
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-warning" type="submit">Enviar</button>
+            <button class="btn btn-warning" id="enviarComentario"type="submit">Enviar</button>
           </div>
         </div>
-      </div>
+      </div>-->
       <section class="">
     <!-- Footer -->
         <footer class="text-center text-white bg-dark" >

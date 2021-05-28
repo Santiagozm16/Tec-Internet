@@ -1,7 +1,7 @@
 //Mi JavaScript
 var us = 0; //-->Variable para relacionar comentarios con el usuario
 var nombre;
-
+var unirComentario = 0;
 //Verificación de Inicio de Sesión
 $(document).ready(function(){
 	$("#InicioForm").submit(function(event){
@@ -52,11 +52,132 @@ function cargarDatos(data, Origen, Destino){
 	console.log('Este es destino:' + Destino);
 	$("#dataInfo tr").remove();
 	if(Origen == data[0].CiudadOrigen && Destino == data[0].CiudadDestino){
-		$("#dataInfo").append('<tr><td>Ciudad de origen:</td>' + `<tr><td>${data[0].CiudadOrigen}</td><td>` + '<tr><td>Ciudad de destino:</td>' + `<tr><td>${data[0].CiudadDestino}</td><td>` 
-		+ '<tr><td>Horarios:</td>' + `<tr><td>${data[0].Horarios}</td><td>`);	
+		/*$("#dataInfo").append('<tr><td>Ciudad de origen:</td>' + `<tr><td>${data[0].CiudadOrigen}</td><td>` + '<tr><td>Ciudad de destino:</td>' + `<tr><td>${data[0].CiudadDestino}</td><td>` 
+		+ '<tr><td>Horarios:</td>' + `<tr><td>${data[0].Horarios}</td><td>`);*/
+		$("#dataInfo").append(`<h4 class=" text-center d-flex flex-column justify-content-center" id="dataInfo">Ciudad de origen: ${data[0].CiudadOrigen}</h4>
+		<br>
+		<h4 class=" text-center d-flex flex-column justify-content-center" id="dataInfo">Ciudad de destino: ${data[0].CiudadDestino}</h4>
+		<br>
+		<h4 class=" text-center d-flex flex-column justify-content-center" id="dataInfo">Horarios: ${data[0].Horarios}</h4>`);
+		unirComentario = 1;	
 	}else(
 		$("#dataInfo").append('<tr><td>No se encontro la ruta</td>')
 	)
+}
+
+//Comentario
+$(document).ready(function(){
+	$('#Ayuda-tab').on('click',function() {
+		comentarioConsulta();
+	});
+});
+
+function comentarioConsulta(CiudadOrigen, CiudadDestino){
+	console.log('Entro');
+	fetch('http://localhost/Tec-Internet/server/business/ComentarioConsulta.php',{
+	method:	'GET',
+	headers:{
+		'Content-Type' : 'application/json'
+	}
+	}).then(response => response.json())
+		.then(result => {
+			if (result.length > 0) {
+				cargarComentario(result);
+			} else {
+				console.log(JSON.stringify(result));
+			}
+	}).catch(error => console.log('error: ' + error));
+}
+
+function cargarComentario(data){
+	var rows = [];
+	var arregloId = [];
+	for (x in data) {
+		rows.push(data[x].ComentarioUsuario);
+        //rows += `<tr><td>${data[x].ComentarioUsuario}</td></tr>` ;
+		arregloId.push(data[x].fkUsuario - 1);
+    }
+	//$("#muestraComentario").append(rows);
+	extraerUsuario(arregloId, rows);	
+}
+
+function extraerUsuario(id, comentario){
+	var usuario = [];
+	fetch('http://localhost/Tec-Internet/server/business/UserConsulta.php',{
+	method:	'GET',
+	headers:{
+		'Content-Type' : 'application/json'
+	}
+	}).then(response => response.json())
+        .then(result => {
+            if (result.length > 0) {
+				$("#textoComentario tr").remove();
+				$("#Foto tr").remove();
+				for(var i = 0; i < id.length; i++){
+					usuario.push(result[id[i]].NombreApellido);
+					if(unirComentario == 1){
+						$("#textoComentario").append(`<div class="media">
+						<img class="d-flex rounded-circle avatar z-depth-1-half mr-3" src="https://www.ver.bo/wp-content/uploads/2019/01/4b463f287cd814216b7e7b2e52e82687.png_1805022883.png"
+						width="5%" height="5%" alt="Avatar">
+						<div class="media-body">
+						  <h5 class="mt-0 font-weight-bold blue-text">${usuario[i]}</h5>
+						  ${comentario[i]}
+						</div>
+					  </div>
+					  <br>`);
+					}
+				}
+				//
+				//console.log("El id es:" + valor + "Y el usuario es:" + usuario);	
+            } else {
+				console.log("Error");
+            }
+        })
+        .catch(error => console.log('error: ' + error));
+		//mostrarComentario(usuario, comentario)
+}
+
+
+
+$(document).ready(function(){
+	$("#enviarComentario").on('click',function(){
+        console.log("entro el evento botón comentario");
+        insertarComentario();
+	});
+});
+
+function insertarComentario(){
+    var comentario = $("#comentario").val();
+
+    var object = {"ComentarioUsuario":comentario, "fkUsuario":us};
+    console.log(object);
+
+	fetch('http://localhost/Tec-Internet/server/business/ComentarioInsert.php',{
+		method:	'POST',
+		headers:{
+			'Content-Type' : 'application/json'
+		},
+		body: JSON.stringify(object),
+		cache: 'no-cache'
+		
+		})
+		.then(function(response){
+			console.log("entró");
+			return response.text();
+		})
+		.then(function(data){
+			console.log(data);
+			if(data === " 1"){
+				//alert("Se ingreso el dato");
+				console.log("Se ha almacenado correctamente");
+			}
+			else{
+				console.log("Error al insertar");
+			}
+		})
+		.catch(function(err){
+			console.error(err);
+		});
 }
 //Consultar usuario para inicio de Sesión
 function submitConsulta(email,pass){
@@ -93,6 +214,7 @@ function submitConsulta(email,pass){
         .catch(error => console.log('error: ' + error));
 	return bandera;
 }
+
 //Función para generar mensajes emergentes
 function ayuda(flag){
 	if(flag == 0){
