@@ -217,6 +217,7 @@ function submitConsulta(email,pass){
 
 //Función para generar mensajes emergentes
 function ayuda(flag){
+	console.log("Usuario no encontrado");
 	if(flag == 0){
 		//console.log("Usuario no encontrado");
 		var respuesta = document.getElementById('alerta2');
