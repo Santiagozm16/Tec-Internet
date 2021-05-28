@@ -148,7 +148,7 @@ $(document).ready(function(){
 
 function insertarComentario(){
     var comentario = $("#comentario").val();
-
+	console.log(comentario);
     var object = {"ComentarioUsuario":comentario, "fkUsuario":us};
     console.log(object);
 
