@@ -53,8 +53,12 @@ function datosConsulta(CiudadOrigen, CiudadDestino){
 function cargarDatos(data, Origen, Destino){
 	console.log('Este es origen:' + Origen);
 	console.log('Este es destino:' + Destino);
-	$("#dataInfo tr").remove();
-	$("#dataMapa tr").remove();
+	//$("#dataInfo tr").remove();
+	//$("#dataMapa tr").remove();
+	var respuesta0 = document.getElementById('dataInfo');
+	var respuesta1 = document.getElementById('dataMapa');
+	respuesta0.innerHTML = "";
+	respuesta1.innerHTML = "";
 	for(var i = 0; i < data.length; i++){
 		if(Origen == data[i].CiudadOrigen && Destino == data[i].CiudadDestino){
 			ruta = data[i].idRuta;
@@ -80,7 +84,7 @@ $(document).ready(function(){
 	});
 });
 
-function comentarioConsulta(CiudadOrigen, CiudadDestino){
+function comentarioConsulta(){
 	console.log('Entro');
 	fetch('http://localhost/Tec-Internet/server/business/ComentarioConsulta.php',{
 	method:	'GET',
@@ -121,8 +125,10 @@ function extraerUsuario(id, comentario, idruta){
 	}).then(response => response.json())
         .then(result => {
             if (result.length > 0) {
-				$("#textoComentario tr").remove();
-				$("#Foto tr").remove();
+				//$("#textoComentario tr").remove();
+				//$("#Foto tr").remove();
+				var respuesta0 = document.getElementById('textoComentario');
+				respuesta0.innerHTML= "";
 				for(var i = 0; i < id.length; i++){
 					usuario.push(result[id[i]].NombreApellido);
 					console.log(ruta[i]);
