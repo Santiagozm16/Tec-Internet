@@ -6,8 +6,8 @@ class ComentarioDAO {
    
    private $connectionDB;
    private $dbCon;
-   const CONSULTA = "SELECT ComentarioUsuario, fkUsuario FROM comentario";
-   const INSERT = "INSERT INTO comentario (ComentarioUsuario,fkUsuario) VALUES (?,?)";
+   const CONSULTA = "SELECT ComentarioUsuario, fkUsuario, fkRuta, idComentario FROM comentario";
+   const INSERT = "INSERT INTO comentario (ComentarioUsuario,fkUsuario, fkRuta) VALUES (?,?,?)";
    
    public function __construct() {
      $this->connectionDB = new connectionDB();
@@ -32,7 +32,7 @@ class ComentarioDAO {
       $result=false;
       try {
          $statement = $this->dbCon->prepare(self::INSERT);
-         $statement->execute([$comentario->ComentarioUsuario, $comentario->fkUsuario]);
+         $statement->execute([$comentario->ComentarioUsuario, $comentario->fkUsuario, $comentario->fkRuta]);
          $result=true;
       }catch(PDOException $ex){
          echo $ex->getMessage();

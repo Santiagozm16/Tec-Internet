@@ -6,7 +6,7 @@
 	
 	
     $comentarioDAO = new ComentarioDAO();
-    $comentario = new Comentario($comentarioDTO->ComentarioUsuario,$comentarioDTO->fkUsuario);
+    $comentario = new Comentario($comentarioDTO->ComentarioUsuario,$comentarioDTO->fkUsuario, $comentarioDTO->fkRuta);
     $results = $comentarioDAO->create($comentario);
     echo $results;
 ?>

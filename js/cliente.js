@@ -2,6 +2,7 @@
 var us = 0; //-->Variable para relacionar comentarios con el usuario
 var nombre;
 var unirComentario = 0;
+var ruta;
 //Verificación de Inicio de Sesión
 $(document).ready(function(){
 	$("#InicioForm").submit(function(event){
@@ -15,8 +16,10 @@ $(document).ready(function(){
 });
 //Extrae los valores de las listas desplegables
 $(document).ready(function(){
+	var contador = 0;
 	var origen;
 	var destino;
+	var element = [];
 	$('#validationCustom01').on('click',function() {
 		console.log($(this).val());
 		origen = $(this).val();
@@ -51,18 +54,23 @@ function cargarDatos(data, Origen, Destino){
 	console.log('Este es origen:' + Origen);
 	console.log('Este es destino:' + Destino);
 	$("#dataInfo tr").remove();
-	if(Origen == data[0].CiudadOrigen && Destino == data[0].CiudadDestino){
-		/*$("#dataInfo").append('<tr><td>Ciudad de origen:</td>' + `<tr><td>${data[0].CiudadOrigen}</td><td>` + '<tr><td>Ciudad de destino:</td>' + `<tr><td>${data[0].CiudadDestino}</td><td>` 
-		+ '<tr><td>Horarios:</td>' + `<tr><td>${data[0].Horarios}</td><td>`);*/
-		$("#dataInfo").append(`<h4 class=" text-center d-flex flex-column justify-content-center" id="dataInfo">Ciudad de origen: ${data[0].CiudadOrigen}</h4>
-		<br>
-		<h4 class=" text-center d-flex flex-column justify-content-center" id="dataInfo">Ciudad de destino: ${data[0].CiudadDestino}</h4>
-		<br>
-		<h4 class=" text-center d-flex flex-column justify-content-center" id="dataInfo">Horarios: ${data[0].Horarios}</h4>`);
-		unirComentario = 1;	
-	}else(
-		$("#dataInfo").append('<tr><td>No se encontro la ruta</td>')
-	)
+	$("#dataMapa tr").remove();
+	for(var i = 0; i < data.length; i++){
+		if(Origen == data[i].CiudadOrigen && Destino == data[i].CiudadDestino){
+			ruta = data[i].idRuta;
+			console.log("Entro");
+			$("#dataMapa").append(`<img class="rounded"src="${data[i].Mapa}" width="80%"  alt="Responsive image"></img>`);
+			$("#dataInfo").append(`<h4 class=" text-center d-flex flex-column justify-content-center" id="dataInfo">Ciudad de origen: ${data[i].CiudadOrigen}</h4>
+			<br>
+			<h4 class=" text-center d-flex flex-column justify-content-center" id="dataInfo">Ciudad de destino: ${data[i].CiudadDestino}</h4>
+			<br>
+			<h4 class=" text-center d-flex flex-column justify-content-center"><a href="${data[i].Horarios}" target="_blank" class="text-primary">Ver Horarios</a></h4>
+			<br>
+			<h4 class=" text-center d-flex flex-column justify-content-center" id="dataInfo">Tiempo: ${data[i].Tiempo}</h4>
+			<br>
+			<h4 class=" text-center d-flex flex-column justify-content-center" id="dataInfo">Distancia: ${data[i].Distancia}</h4>`);
+		}
+	}	
 }
 
 //Comentario
@@ -92,16 +100,18 @@ function comentarioConsulta(CiudadOrigen, CiudadDestino){
 function cargarComentario(data){
 	var rows = [];
 	var arregloId = [];
+	var arregloRuta = [];
 	for (x in data) {
 		rows.push(data[x].ComentarioUsuario);
         //rows += `<tr><td>${data[x].ComentarioUsuario}</td></tr>` ;
 		arregloId.push(data[x].fkUsuario - 1);
+		arregloRuta.push(data[x].fkRuta);
     }
 	//$("#muestraComentario").append(rows);
-	extraerUsuario(arregloId, rows);	
+	extraerUsuario(arregloId, rows, arregloRuta);	
 }
 
-function extraerUsuario(id, comentario){
+function extraerUsuario(id, comentario, idruta){
 	var usuario = [];
 	fetch('http://localhost/Tec-Internet/server/business/UserConsulta.php',{
 	method:	'GET',
@@ -115,7 +125,8 @@ function extraerUsuario(id, comentario){
 				$("#Foto tr").remove();
 				for(var i = 0; i < id.length; i++){
 					usuario.push(result[id[i]].NombreApellido);
-					if(unirComentario == 1){
+					console.log(ruta[i]);
+					if(idruta[i] == ruta){
 						$("#textoComentario").append(`<div class="media">
 						<img class="d-flex rounded-circle avatar z-depth-1-half mr-3" src="https://www.ver.bo/wp-content/uploads/2019/01/4b463f287cd814216b7e7b2e52e82687.png_1805022883.png"
 						width="5%" height="5%" alt="Avatar">
@@ -143,13 +154,14 @@ $(document).ready(function(){
 	$("#enviarComentario").on('click',function(){
         console.log("entro el evento botón comentario");
         insertarComentario();
+		
 	});
 });
 
 function insertarComentario(){
     var comentario = $("#comentario").val();
-	console.log(comentario);
-    var object = {"ComentarioUsuario":comentario, "fkUsuario":us};
+
+    var object = {"ComentarioUsuario":comentario, "fkUsuario":us, "fkRuta":ruta};
     console.log(object);
 
 	fetch('http://localhost/Tec-Internet/server/business/ComentarioInsert.php',{
@@ -217,7 +229,6 @@ function submitConsulta(email,pass){
 
 //Función para generar mensajes emergentes
 function ayuda(flag){
-	console.log("Usuario no encontrado");
 	if(flag == 0){
 		//console.log("Usuario no encontrado");
 		var respuesta = document.getElementById('alerta2');
